@@ -1,0 +1,136 @@
+{
+  "document": {
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "title": "Authentication bypass in NX series PLC web server",
+    "lang": "en",
+    "publisher": {
+      "category": "vendor",
+      "name": "Northbridge Automation",
+      "namespace": "https://psirt.example.com"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "Advisory",
+        "url": "https://psirt.example.com/nba-sa-2030-004.json"
+      }
+    ],
+    "tracking": {
+      "id": "NBA-SA-2030-004",
+      "status": "final",
+      "version": "1",
+      "initial_release_date": "2030-02-11T09:00:00Z",
+      "current_release_date": "2030-02-11T09:00:00Z",
+      "revision_history": [
+        {
+          "date": "2030-02-11T09:00:00Z",
+          "number": "1",
+          "summary": "Initial release"
+        }
+      ]
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Northbridge Automation",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "NX-500",
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "vers:generic/<4.2.1",
+                "product": {
+                  "product_id": "NX500-LT-421",
+                  "name": "NX-500 firmware < 4.2.1"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "4.2.1",
+                "product": {
+                  "product_id": "NX500-421",
+                  "name": "NX-500 firmware 4.2.1"
+                }
+              }
+            ]
+          },
+          {
+            "category": "product_name",
+            "name": "NX-300",
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "V3.0 and prior",
+                "product": {
+                  "product_id": "NX300-LE-30",
+                  "name": "NX-300 V3.0 and prior"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2030-11001",
+      "title": "Missing authentication for critical function",
+      "cwe": {
+        "id": "CWE-306",
+        "name": "Missing Authentication for Critical Function"
+      },
+      "product_status": {
+        "known_affected": [
+          "NX500-LT-421",
+          "NX300-LE-30"
+        ],
+        "fixed": [
+          "NX500-421"
+        ]
+      },
+      "scores": [
+        {
+          "products": [
+            "NX500-LT-421",
+            "NX300-LE-30"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "baseScore": 9.8,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          }
+        }
+      ],
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "Vendor is aware of exploitation in the wild."
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update NX-500 firmware to 4.2.1 or later.",
+          "product_ids": [
+            "NX500-LT-421"
+          ],
+          "url": "https://psirt.example.com/downloads/nx500-4.2.1"
+        },
+        {
+          "category": "mitigation",
+          "details": "NX-300 is end of life. Disable the web server and restrict TCP/80 and TCP/443 to the engineering workstation.",
+          "product_ids": [
+            "NX300-LE-30"
+          ]
+        }
+      ]
+    }
+  ]
+}

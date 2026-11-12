@@ -1,0 +1,173 @@
+{
+  "document": {
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "title": "Multiple vulnerabilities in ViewPoint HMI",
+    "lang": "en",
+    "publisher": {
+      "category": "vendor",
+      "name": "Calder Systems",
+      "namespace": "https://psirt.example.com"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "Advisory",
+        "url": "https://psirt.example.com/calder-2030-0012.json"
+      }
+    ],
+    "tracking": {
+      "id": "CALDER-2030-0012",
+      "status": "final",
+      "version": "1",
+      "initial_release_date": "2030-02-25T14:00:00Z",
+      "current_release_date": "2030-02-25T14:00:00Z",
+      "revision_history": [
+        {
+          "date": "2030-02-25T14:00:00Z",
+          "number": "1",
+          "summary": "Initial release"
+        }
+      ]
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Calder Systems",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "ViewPoint HMI",
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "7.1",
+                "product": {
+                  "product_id": "VP-71",
+                  "name": "ViewPoint HMI 7.1"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "7.2",
+                "product": {
+                  "product_id": "VP-72",
+                  "name": "ViewPoint HMI 7.2"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "7.3",
+                "product": {
+                  "product_id": "VP-73",
+                  "name": "ViewPoint HMI 7.3"
+                }
+              }
+            ]
+          },
+          {
+            "category": "product_name",
+            "name": "ViewPoint Historian",
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "<= 5.4",
+                "product": {
+                  "product_id": "VH-LE-54",
+                  "name": "ViewPoint Historian <= 5.4"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "product_reference": "VH-LE-54",
+        "relates_to_product_reference": "VP-72",
+        "full_product_name": {
+          "product_id": "VH-LE-54:VP-72",
+          "name": "ViewPoint Historian <= 5.4 bundled with ViewPoint HMI 7.2"
+        }
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2030-12040",
+      "title": "Path traversal in project import",
+      "product_status": {
+        "known_affected": [
+          "VP-71",
+          "VP-72"
+        ],
+        "fixed": [
+          "VP-73"
+        ]
+      },
+      "scores": [
+        {
+          "products": [
+            "VP-71",
+            "VP-72"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+          }
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade to ViewPoint HMI 7.3.",
+          "product_ids": [
+            "VP-71",
+            "VP-72"
+          ],
+          "url": "https://psirt.example.com/downloads/viewpoint-7.3"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2030-12041",
+      "title": "Hard-coded credentials in historian service",
+      "product_status": {
+        "known_affected": [
+          "VH-LE-54",
+          "VH-LE-54:VP-72"
+        ]
+      },
+      "scores": [
+        {
+          "products": [
+            "VH-LE-54",
+            "VH-LE-54:VP-72"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+          }
+        }
+      ],
+      "remediations": [
+        {
+          "category": "workaround",
+          "details": "Change the historian service account password and block TCP/5450 from outside the SCADA zone.",
+          "product_ids": [
+            "VH-LE-54",
+            "VH-LE-54:VP-72"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "document": {
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "title": "Denial of service in RSX industrial switches",
+    "lang": "en",
+    "publisher": {
+      "category": "vendor",
+      "name": "Ostara Networks",
+      "namespace": "https://psirt.example.com"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "Advisory",
+        "url": "https://psirt.example.com/ostara-2030-03.json"
+      }
+    ],
+    "tracking": {
+      "id": "OSTARA-2030-03",
+      "status": "final",
+      "version": "1",
+      "initial_release_date": "2030-03-01T08:00:00Z",
+      "current_release_date": "2030-03-01T08:00:00Z",
+      "revision_history": [
+        {
+          "date": "2030-03-01T08:00:00Z",
+          "number": "1",
+          "summary": "Initial release"
+        }
+      ]
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Ostara Networks",
+        "branches": [
+          {
+            "category": "product_family",
+            "name": "RSX",
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "RSX-24",
+                "branches": [
+                  {
+                    "category": "product_version_range",
+                    "name": "2.0 to 2.4.9",
+                    "product": {
+                      "product_id": "RSX24-20-249",
+                      "name": "RSX-24 2.0 to 2.4.9",
+                      "product_identification_helper": {
+                        "cpe": "cpe:2.3:o:ostara:rsx-24_firmware:*:*:*:*:*:*:*:*"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "category": "product_name",
+                "name": "RSX-8",
+                "branches": [
+                  {
+                    "category": "product_version_range",
+                    "name": "builds before November 2029",
+                    "product": {
+                      "product_id": "RSX8-OLD",
+                      "name": "RSX-8 builds before November 2029"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2030-13377",
+      "title": "Crafted LLDP frame causes reboot",
+      "product_status": {
+        "known_affected": [
+          "RSX24-20-249",
+          "RSX8-OLD"
+        ]
+      },
+      "scores": [
+        {
+          "products": [
+            "RSX24-20-249",
+            "RSX8-OLD"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Install firmware 2.5.0.",
+          "product_ids": [
+            "RSX24-20-249",
+            "RSX8-OLD"
+          ]
+        }
+      ]
+    }
+  ]
+}

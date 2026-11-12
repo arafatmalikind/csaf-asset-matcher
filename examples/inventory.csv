@@ -1,0 +1,15 @@
+asset_id,hostname,vendor,product,version,cpe,zone,criticality,owner
+A-1001,plc-intake-01,Northbridge Automation Inc.,NX-500,4.1.7,,control,high,Process Control
+A-1002,plc-intake-02,Northbridge Automation Inc.,NX-500,4.2.1,,control,high,Process Control
+A-1003,plc-dosing-01,NBA,NX-500 CPU,V4.0.2,,control,high,Process Control
+A-1004,plc-filter-07,Northbridge Automation,NX-300,2.8,,control,medium,Process Control
+A-1005,plc-sludge-02,Northbridge Automation,NX-300,3.1,,control,medium,Process Control
+A-2001,hmi-ops-01,Calder Systems,ViewPoint HMI,7.2,,scada,high,Operations
+A-2002,hmi-ops-02,Calder Systems,ViewPoint HMI,7.3,,scada,high,Operations
+A-2003,hmi-lab-01,Calder Systems Ltd,ViewPoint HMI,7.1,,ops,low,Laboratory
+A-2101,hist-01,Calder Systems,ViewPoint Historian,5.4,,scada,high,Operations
+A-2102,hist-02,Calder Systems,ViewPoint Historian,6.0,,scada,high,Operations
+A-3001,sw-ctrl-a,Ostara,RSX-24 switch,2.4.2,cpe:2.3:o:ostara:rsx-24_firmware:2.4.2:*:*:*:*:*:*:*,control,high,Network
+A-3002,sw-ctrl-b,Ostara Networks,RSX-24,2.5.0,,control,high,Network
+A-3003,sw-field-12,Ostara Networks,RSX-8,1.9,,control,medium,Network
+A-9001,ews-01,Contoso,Engineering Workstation,22H2,,ops,high,Engineering
